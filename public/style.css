@@ -1,25 +1,59 @@
-body {
-        background-color: #f7f3e9; /* A gentle off-white like lined paper */
-            font-family: sans-serif; 
+:root {
+      --background-color: #f7f3e9;    /* Light mode off-white */
+        --text-color: black;             
+          --editor-border: #ccc;
+            --shadow-color: rgba(0, 0, 0, 0.1);
             }
 
-            #root {
-                width: 80%;
-                    margin: 20px auto;
-                        padding: 20px;
-                            background-color: white;
-                                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* A subtle drop shadow */
-                                    border-radius: 8px; /* Rounded corners for friendliness */
-                                                & > div { /* Targets the direct child div of #root */
-                                                        height: 400px;  /* Give it a visible height */
-                                                        border: 1px solid #ccc;
-                                                        padding: 10px;
-                                                        font-family: monospace;
-                                                            }
-                                    }
+            .dark-mode {
+              --background-color: #FFFDD0;  /* Our blue-light-friendly cream */
+                --text-color: #333;          /* Dark gray text */
+                  --editor-border: #ddd;      /* Slightly darker cream border */
+                    --shadow-color: rgba(255, 255, 255, 0.1); /* Lighter shadow */
+                    }
 
-                                    h1 {
-                                        text-align: center;
-                                            font-family: 'Chalkboard SE', 'Comic Neue', cursive; /* Playful fonts (adjust to your liking) */
-                                                margin-bottom: 20px;
-                                                }
+                    body {
+                      background-color: var(--background-color);
+                        font-family: sans-serif;
+                          color: var(--text-color);
+                            transition: background-color 0.3s ease; /* Smooth transition for theme change */
+                            }
+
+                            #root {
+                              width: 80%;
+                                margin: 20px auto;
+                                  padding: 20px;
+                                    background-color: white;
+                                      box-shadow: 0px 2px 5px var(--shadow-color); /* Use shadow variable */
+                                        border-radius: 8px; 
+
+                                          & > div { 
+                                              height: 400px;
+                                                  border: 1px solid var(--editor-border);  /* Use border variable */
+                                                      padding: 10px;
+                                                          font-family: monospace;
+                                                            }
+                                                            }
+
+                                                            h1 {
+                                                              text-align: center;
+                                                                font-family: 'Chalkboard SE', 'Comic Neue', cursive; 
+                                                                  margin-bottom: 20px;
+                                                                  }
+
+                                                                  #theme-toggle {
+                                                                      cursor: pointer;  /* Make it look clickable */
+                                                                        font-size: 1.2rem;  
+                                                                        }
+
+                                                                        #theme-toggle .fa-moon {
+                                                                          display: none;  /* Initially hide the moon icon */
+                                                                          }
+
+                                                                          .dark-mode #theme-toggle .fa-sun {
+                                                                            display: none;  /* Hide sun in dark mode */
+                                                                            }
+
+                                                                            .dark-mode #theme-toggle .fa-moon {
+                                                                              display: inline-block;  /* Show moon in dark mode */
+                                                                              }

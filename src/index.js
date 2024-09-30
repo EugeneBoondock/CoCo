@@ -20,6 +20,14 @@ const App = () => {
                                                     <div ref={editorRef} /> 
                                                         </div>
                                                           );
+                                                          useEffect(() => {
+                                                            const toggleButton = document.getElementById('theme-toggle');
+                                                              const bodyElement = document.body; 
+
+                                                                toggleButton.addEventListener('click', () => {
+                                                                    bodyElement.classList.toggle('dark-mode');
+                                                                      });
+                                                                      }, []); 
                                                           };
 
                                                           const root = ReactDOM.createRoot(document.getElementById('root'));
